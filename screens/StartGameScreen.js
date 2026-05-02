@@ -8,6 +8,7 @@ import colors from "../constants/colors";
 
 const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState("");
+  
   function numberInputHandler(enteredText) {
     setEnteredNumber(enteredText);
   }
