@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    
+
     padding: 12,
   },
 });
