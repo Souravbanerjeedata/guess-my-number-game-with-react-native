@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert, Text } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
@@ -23,6 +23,7 @@ let maxBoundary = 100;
 const GameScreen = ({ userNumber, onGameOver }) => {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  const [guessRounds, setGuessRounds] = useState([]);
   useEffect(() => {
     if (currentGuess === userNumber) {
       onGameOver();
@@ -54,6 +55,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
       currentGuess,
     );
     setCurrentGuess(newRndNumber);
+    setGuessRounds((prevGuessNumbers) => [newRndNumber, ...prevGuessNumbers]);
   }
 
   return (
@@ -77,7 +79,9 @@ const GameScreen = ({ userNumber, onGameOver }) => {
           </View>
         </View>
       </Card>
-      {/* Log Rounds */}
+      {guessRounds.map((guess) => (
+        <Text key={guess}>{guess}</Text>
+      ))}
     </View>
   );
 };
