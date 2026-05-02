@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
@@ -41,7 +41,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
     }
     if (direction === "lower") {
       minBoundary = currentGuess;
-    } else if (direction === "higher") {
+    } else {
       minBoundary = currentGuess + 1;
     }
     const newRndNumber = generateRandomBetween(
