@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
@@ -53,8 +55,8 @@ const GameScreen = ({ userNumber, onGameOver }) => {
     <View style={styles.screen}>
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
-        <Text>Higher or Lower?</Text>
+      <Card>
+        <InstructionText>Higher or Lower?</InstructionText>
         <View>
           <PrimaryButton onPress={() => nextGuessHandler("lower")}>
             -
@@ -63,7 +65,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
             +
           </PrimaryButton>
         </View>
-      </View>
+      </Card>
       {/* Log Rounds */}
     </View>
   );
